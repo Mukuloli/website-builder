@@ -126,6 +126,25 @@ export default function Home() {
                   Call {phoneNumber}
                 </a>
               </div>
+
+              <div className={styles.infoBoxes}>
+                <div className={styles.infoBox}>
+                  <div className={styles.infoBoxTitle}>What We Build</div>
+                  <div className={styles.infoBoxItem}><span>📞</span> AI Voice Agents</div>
+                  <div className={styles.infoBoxItem}><span>💬</span> AI Chatbots &amp; RAG</div>
+                  <div className={styles.infoBoxItem}><span>⚙️</span> Business Automation</div>
+                  <div className={styles.infoBoxItem}><span>🌐</span> Websites &amp; CMS</div>
+                  <div className={styles.infoBoxItem}><span>🔌</span> AI Integrations</div>
+                </div>
+                <div className={styles.infoBox}>
+                  <div className={styles.infoBoxTitle}>Get in Touch</div>
+                  <div className={styles.infoBoxItem}><span>📱</span> WhatsApp: {phoneNumber}</div>
+                  <div className={styles.infoBoxItem}><span>📞</span> Call: {phoneNumber}</div>
+                  <div className={styles.infoBoxItem}><span>⚡</span> Free consultation</div>
+                  <div className={styles.infoBoxItem}><span>🕐</span> Available 24/7</div>
+                  <div className={styles.infoBoxItem}><span>🇮🇳</span> Based in India</div>
+                </div>
+              </div>
             </div>
 
             <div className={styles.heroVisual}>

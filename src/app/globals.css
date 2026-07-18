@@ -1,31 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --bg-main: #030712;
-  --bg-surface: #0b0f19;
-  --bg-subtle: #111827;
-  --bg-soft: rgba(139, 92, 246, 0.06);
+  --bg-main: #09090b;
+  --bg-surface: #111113;
+  --bg-subtle: #18181b;
+  --bg-soft: rgba(255, 255, 255, 0.03);
   --border-color: rgba(255, 255, 255, 0.08);
-  --border-color-hover: rgba(255, 255, 255, 0.2);
+  --border-color-hover: rgba(255, 255, 255, 0.18);
 
-  --text-primary: #f9fafb;
-  --text-secondary: #d1d5db;
-  --text-muted: #9ca3af;
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
 
-  --primary: #8b5cf6;
-  --primary-hover: #a78bfa;
-  --primary-soft: rgba(139, 92, 246, 0.15);
-  --secondary: #06b6d4;
-  --secondary-soft: rgba(6, 182, 212, 0.15);
+  --primary: #e4e4e7;
+  --primary-hover: #ffffff;
+  --primary-soft: rgba(255, 255, 255, 0.08);
+  --secondary: #a1a1aa;
+  --secondary-soft: rgba(255, 255, 255, 0.06);
 
-  --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
-  --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
-  --gradient-neon: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
-  --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+  --gradient-primary: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+  --gradient-secondary: linear-gradient(135deg, #d4d4d8 0%, #71717a 100%);
+  --gradient-neon: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+  --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
 
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.7);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.8);
   --glass-blur: blur(16px);
 
   --font-sans: 'Inter', sans-serif;
@@ -46,9 +46,8 @@ html {
 
 body {
   background:
-    radial-gradient(circle at 10% 0%, rgba(139, 92, 246, 0.12), transparent 45rem),
-    radial-gradient(circle at 90% 50%, rgba(6, 182, 212, 0.08), transparent 45rem),
-    radial-gradient(circle at 50% 100%, rgba(59, 130, 246, 0.06), transparent 50rem),
+    radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.03), transparent 45rem),
+    radial-gradient(circle at 90% 50%, rgba(255, 255, 255, 0.02), transparent 45rem),
     var(--bg-main);
   color: var(--text-primary);
   font-family: var(--font-sans);
@@ -136,15 +135,14 @@ select {
   width: fit-content;
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 800;
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.25);
-  color: var(--primary-hover);
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 1.2rem;
-  box-shadow: 0 0 12px rgba(139, 92, 246, 0.08);
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
 }
 
 .btn {
@@ -164,15 +162,16 @@ select {
 }
 
 .btn-primary {
-  background: var(--gradient-primary);
-  color: #ffffff;
-  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.25);
+  background: #ffffff;
+  color: #09090b;
+  font-weight: 800;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.08);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(139, 92, 246, 0.4);
-  filter: brightness(1.1);
+  background: #e4e4e7;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.12);
 }
 
 .btn-primary:active {
@@ -212,9 +211,78 @@ select {
   box-shadow: var(--shadow-lg);
 }
 
+/* ── Premium Ad Animations ── */
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(255, 255, 255, 0.04); }
+  50% { box-shadow: 0 0 16px rgba(255, 255, 255, 0.08); }
+}
+
+@keyframes badgePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.75; }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Shimmer sweep on primary CTA buttons */
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 100%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Gradient section divider utility */
+.gradient-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.15) 50%, transparent 100%);
+  border: none;
+}
+
+/* Badge is already defined above, no duplicate needed */
+
+/* ── Responsive ── */
+
 @media (max-width: 768px) {
   .container {
     padding: 0 1.5rem;
+  }
+
+  .btn {
+    font-size: 0.92rem;
+    min-height: 46px;
+    padding: 0.8rem 1.4rem;
+    border-radius: 12px;
+  }
+
+  .btn-primary {
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.06);
   }
 }
 
@@ -225,5 +293,19 @@ select {
 
   .btn {
     width: 100%;
+    justify-content: center;
+    font-size: 0.95rem;
+    min-height: 50px;
+    border-radius: 14px;
+  }
+
+  .btn-primary {
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08);
+    font-weight: 800;
+  }
+
+  .badge {
+    font-size: 0.68rem;
+    padding: 0.4rem 0.8rem;
   }
 }

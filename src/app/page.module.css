@@ -10,9 +10,9 @@
   padding: 6.5rem 0 5rem;
   overflow: hidden;
   background:
-    radial-gradient(circle at 75% 30%, rgba(139, 92, 246, 0.15), transparent 35rem),
-    radial-gradient(circle at 25% 70%, rgba(6, 182, 212, 0.1), transparent 30rem),
-    #050814;
+    radial-gradient(circle at 75% 30%, rgba(255, 255, 255, 0.03), transparent 35rem),
+    radial-gradient(circle at 25% 70%, rgba(255, 255, 255, 0.02), transparent 30rem),
+    #09090b;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -21,7 +21,7 @@
   position: absolute;
   inset: auto 0 0;
   height: 120px;
-  background: linear-gradient(180deg, transparent 0%, rgba(3, 7, 18, 0.4) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(9, 9, 11, 0.4) 100%);
   pointer-events: none;
 }
 
@@ -37,36 +37,76 @@
 .heroContent {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 1.4rem;
 }
 
 .heroBadge {
   width: fit-content;
-  padding: 0.5rem 1rem;
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 0.4rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
-  color: #a78bfa;
-  background: rgba(139, 92, 246, 0.08);
-  font-size: 0.78rem;
-  font-weight: 800;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.65rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  box-shadow: 0 0 16px rgba(139, 92, 246, 0.06);
+  letter-spacing: 0.08em;
+}
+
+/* ── Two Info Boxes ── */
+.infoBoxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.infoBox {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.25rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.infoBoxTitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.15rem;
+}
+
+.infoBoxItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.infoBoxItem span:first-child {
+  flex-shrink: 0;
+  font-size: 0.85rem;
 }
 
 .heroTitle {
   max-width: 720px;
   color: #ffffff;
-  font-size: clamp(2.6rem, 5.2vw, 4.4rem);
-  line-height: 1.05;
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  line-height: 1.08;
   font-weight: 900;
   letter-spacing: -0.03em;
 }
 
 .heroSubtitle {
   max-width: 620px;
-  color: var(--text-secondary);
-  font-size: 1.12rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
   line-height: 1.65;
 }
 
@@ -100,15 +140,15 @@
 .heroFloatTwo,
 .heroFloatThree {
   position: absolute;
-  padding: 0.8rem 1.2rem;
+  padding: 0.6rem 1rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  background: rgba(11, 15, 25, 0.75);
+  border-radius: 10px;
+  background: rgba(17, 17, 19, 0.8);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  box-shadow: var(--shadow-lg), 0 0 15px rgba(139, 92, 246, 0.1);
-  color: #ffffff;
-  font-size: 0.88rem;
+  box-shadow: var(--shadow-lg);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -147,9 +187,9 @@
 }
 
 .serviceStrip {
-  padding: 5rem 0;
+  padding: 4rem 0;
   border-bottom: 1px solid var(--border-color);
-  background: #050814;
+  background: #09090b;
 }
 
 .serviceCards {
@@ -159,48 +199,47 @@
 }
 
 .serviceCard {
-  min-height: 220px;
-  padding: 2.2rem 1.8rem;
+  min-height: 200px;
+  padding: 1.8rem 1.5rem;
   border: 1px solid var(--border-color);
-  border-radius: 14px;
-  background: rgba(11, 15, 25, 0.5);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
 .serviceCard:hover {
   border-color: var(--border-color-hover);
-  transform: translateY(-5px);
-  background: rgba(11, 15, 25, 0.85);
-  box-shadow: var(--shadow-lg), 0 0 24px rgba(139, 92, 246, 0.08);
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow-lg);
 }
 
 .serviceIcon {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.25);
-  font-size: 1.5rem;
-  box-shadow: 0 0 12px rgba(139, 92, 246, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.3rem;
 }
 
 .serviceCard h3 {
-  font-size: 1.15rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 
 .serviceCard p {
-  color: var(--text-secondary);
-  font-size: 0.92rem;
-  line-height: 1.6;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
 }
 
 .featureSection,
@@ -240,7 +279,7 @@
 }
 
 .chatPanel {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(3, 7, 18, 0.4) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(9, 9, 11, 0.4) 100%);
 }
 
 .chatPanelDetails {
@@ -250,11 +289,11 @@
 }
 
 .processPanel {
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(3, 7, 18, 0.4) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.025) 0%, rgba(9, 9, 11, 0.4) 100%);
 }
 
 .voicePanel {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(3, 7, 18, 0.5) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0%, rgba(9, 9, 11, 0.5) 100%);
 }
 
 .chatPanel h2,
@@ -268,7 +307,7 @@
 
 .chatBox {
   border-radius: 12px;
-  background: #0d1324;
+  background: #111113;
   border: 1px solid rgba(255, 255, 255, 0.05);
   padding: 1rem;
   margin-top: 1.5rem;
@@ -336,9 +375,9 @@
 
 .flow span {
   padding: 0.75rem 1rem;
-  border: 1px solid rgba(6, 182, 212, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 10px;
-  background: rgba(11, 15, 25, 0.6);
+  background: rgba(17, 17, 19, 0.6);
   color: var(--text-primary);
   text-align: center;
   font-weight: 700;
@@ -349,7 +388,7 @@
 
 .flow span:hover {
   border-color: var(--secondary);
-  background: rgba(6, 182, 212, 0.1);
+  background: rgba(255, 255, 255, 0.1);
   transform: scale(1.02);
 }
 
@@ -360,7 +399,7 @@
   gap: 6px;
   height: 60px;
   margin-top: 1.5rem;
-  background: rgba(11, 15, 25, 0.4);
+  background: rgba(17, 17, 19, 0.4);
   border-radius: 12px;
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.03);
@@ -448,7 +487,7 @@
   width: 24px;
   height: 24px;
   background: var(--secondary-soft);
-  border: 1px solid rgba(6, 182, 212, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: var(--secondary);
   border-radius: 99px;
   display: flex;
@@ -474,8 +513,8 @@
 }
 
 .benefitsBar {
-  padding: 3rem 0;
-  background: #050814;
+  padding: 2.5rem 0;
+  background: #09090b;
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
 }
@@ -525,11 +564,11 @@
   color: #ffffff;
   font-weight: 900;
   font-size: 0.88rem;
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
 }
 
 .techSection {
-  background: #050814;
+  background: #09090b;
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
 }
@@ -558,8 +597,8 @@
 }
 
 .tags span:hover {
-  background: rgba(139, 92, 246, 0.1);
-  border-color: rgba(139, 92, 246, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
   color: var(--primary-hover);
 }
 
@@ -580,8 +619,8 @@
 }
 
 .faqActive {
-  border-color: rgba(139, 92, 246, 0.35);
-  box-shadow: var(--shadow-md), 0 0 16px rgba(139, 92, 246, 0.05);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: var(--shadow-md), 0 0 16px rgba(255, 255, 255, 0.05);
 }
 
 .faqQuestion {
@@ -636,8 +675,8 @@
 
 .contactSection {
   background:
-    radial-gradient(circle at 30% 0%, rgba(139, 92, 246, 0.15), transparent 30rem),
-    #050814;
+    radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.025), transparent 30rem),
+    #09090b;
   border-top: 1px solid var(--border-color);
 }
 
@@ -720,19 +759,84 @@
     padding-top: 4.5rem;
   }
 
-  .hero,
+  /* ── Hero: tight, punchy, ad-style ── */
+  .hero {
+    padding: 3rem 0 2rem;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.22), transparent 24rem),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.12), transparent 20rem),
+      #09090b;
+  }
+
+  .heroContent {
+    gap: 1.2rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .heroBadge {
+    font-size: 0.7rem;
+    padding: 0.45rem 0.9rem;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .heroTitle {
+    font-size: 2.4rem;
+    line-height: 1.1;
+    text-align: center;
+    letter-spacing: -0.03em;
+  }
+
+  .heroSubtitle {
+    font-size: 0.95rem;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 100%;
+    color: var(--text-secondary);
+  }
+
+  .heroActions,
+  .contactButtons {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+
+  .heroVisual {
+    min-height: 280px;
+    margin-top: 0.5rem;
+  }
+
+  .heroImage {
+    mask-image: none;
+    border-radius: 14px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .heroFloatOne,
+  .heroFloatTwo,
+  .heroFloatThree {
+    display: none;
+  }
+
+  /* ── Sections: compact padding ── */
   .featureSection,
   .section,
   .techSection,
   .contactSection {
-    padding: 4.5rem 0;
+    padding: 3rem 0;
   }
 
+  .serviceStrip {
+    padding: 3rem 0;
+  }
+
+  /* ── Service Cards: 2-col on tablet ── */
   .serviceCards,
   .solutionGrid,
   .processGrid,
-  .techGrid,
-  .benefitsGrid {
+  .techGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.85rem;
   }
@@ -741,62 +845,462 @@
   .solutionCard,
   .processCard,
   .techCard {
-    padding: 1.25rem 1rem;
-    border-radius: 12px;
+    padding: 1.3rem 1.1rem;
+    border-radius: 14px;
   }
 
   .serviceCard h3,
   .solutionCard h3,
   .processCard h3,
   .techCard h3 {
-    font-size: 1.08rem;
+    font-size: 1.05rem;
     font-weight: 700;
   }
 
   .serviceCard p,
   .solutionCard p,
   .processCard p {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     line-height: 1.5;
+  }
+
+  /* ── Benefits: 2-col ── */
+  .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
   }
 
   .benefitsGrid div {
     border-right: none;
     border-bottom: 1px solid var(--border-color);
-    padding: 0.85rem 0.5rem;
+    padding: 1rem 0.75rem;
   }
 
-  .benefitsGrid div:last-child {
+  .benefitsGrid div:last-child,
+  .benefitsGrid div:nth-last-child(2) {
     border-bottom: none;
   }
 
+  /* ── Feature panels: full width ── */
+  .chatPanel,
+  .processPanel,
+  .voicePanel {
+    min-height: auto;
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────── */
+/* MOBILE < 600px — FULL ADVERTISEMENT LANDING PAGE DESIGN          */
+/* ────────────────────────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+
+  /* ── Hero: Bold, centered, conversion-focused ── */
+  .hero {
+    padding: 2rem 0 1.5rem;
+    background:
+      radial-gradient(circle at 50% -10%, rgba(255, 255, 255, 0.28), transparent 20rem),
+      radial-gradient(circle at 20% 100%, rgba(255, 255, 255, 0.15), transparent 18rem),
+      #09090b;
+  }
+
+  .hero::after {
+    height: 60px;
+  }
+
+  .heroContent {
+    gap: 1rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .heroBadge {
+    font-size: 0.65rem;
+    padding: 0.4rem 0.85rem;
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.12);
+    animation: float 3.5s ease-in-out infinite;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+    line-height: 1.12;
+    text-align: center;
+    letter-spacing: -0.025em;
+    max-width: 100%;
+  }
+
+  .heroSubtitle {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 100%;
+    color: var(--text-secondary);
+  }
+
+  .heroActions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.65rem;
+    margin-top: 0.25rem;
+  }
+
+  .infoBoxes {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-top: 0.75rem;
+  }
+
+  .infoBox {
+    padding: 0.85rem 0.75rem;
+    border-radius: 10px;
+    gap: 0.45rem;
+  }
+
+  .infoBoxTitle {
+    font-size: 0.62rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .infoBoxItem {
+    font-size: 0.68rem;
+    gap: 0.35rem;
+  }
+
+  .infoBoxItem span:first-child {
+    font-size: 0.72rem;
+  }
+
   .heroVisual {
-    min-height: 320px;
+    min-height: 200px;
+    height: 220px;
+    margin-top: 0.5rem;
   }
 
   .heroImage {
-    mask-image: none;
+    border-radius: 14px;
+    box-shadow:
+      0 12px 32px rgba(0, 0, 0, 0.4),
+      0 0 60px rgba(255, 255, 255, 0.03);
   }
 
-  .heroFloatOne,
-  .heroFloatTwo,
-  .heroFloatThree {
-    display: none;
+  /* ── Sections: very tight vertical rhythm ── */
+  .featureSection,
+  .section,
+  .techSection,
+  .contactSection {
+    padding: 2.5rem 0;
   }
-}
 
-@media (max-width: 576px) {
+  .serviceStrip {
+    padding: 2.5rem 0;
+  }
+
   .sectionHeader {
-    align-items: flex-start;
-    text-align: left;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1.75rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.65rem;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+  }
+
+  .sectionSubtitle {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    line-height: 1.55;
+  }
+
+  /* ── Grid Stacking: two-column sets ── */
+  .serviceCards,
+  .solutionGrid,
+  .processGrid,
+  .techGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+  }
+
+  .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+
+  /* ── Service Cards: premium glass style ── */
+  .serviceCard {
+    padding: 1.15rem 0.95rem;
+    border-radius: 12px;
+    border-color: rgba(255, 255, 255, 0.06);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(17, 17, 19, 0.6) 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: auto;
+  }
+
+  .serviceCard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 3px 0 0 3px;
+    opacity: 0.6;
+  }
+
+  .serviceCard h3 {
+    font-size: 0.88rem;
+    font-weight: 800;
+  }
+
+  .serviceCard p {
+    font-size: 0.76rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+  }
+
+  .serviceIcon {
+    width: 34px;
+    height: 34px;
+    font-size: 1.15rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+  }
+
+  /* ── Solution, Process, Tech cards: uniform clean look ── */
+  .solutionCard,
+  .processCard,
+  .techCard {
+    padding: 1.15rem 0.95rem;
+    border-radius: 12px;
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .solutionCard h3,
+  .processCard h3,
+  .techCard h3 {
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+
+  .solutionCard p,
+  .processCard p {
+    font-size: 0.76rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+  }
+
+  /* ── Process step badge ── */
+  .processStep {
+    width: 28px;
+    height: 28px;
+    font-size: 0.72rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+  }
+
+  /* ── Benefits: horizontal scroll feel with stacking ── */
+  .benefitsBar {
+    padding: 2rem 0;
+  }
+
+  .benefitsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .benefitsGrid div {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0.75rem;
+    text-align: center;
+  }
+
+  .benefitsGrid div:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  .benefitsGrid strong {
+    font-size: 0.9rem;
+  }
+
+  .benefitsGrid span {
+    font-size: 0.78rem;
+  }
+
+  /* ── Feature panels: premium glass cards ── */
+  .chatPanel,
+  .processPanel,
+  .voicePanel {
+    min-height: auto;
+    padding: 1.75rem 1.25rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md), 0 0 30px rgba(255, 255, 255, 0.04);
+  }
+
+  .chatPanel h2,
+  .processPanel h2,
+  .voicePanel h2 {
+    font-size: 1.35rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .chatBox {
+    padding: 0.85rem;
+    margin-top: 1.25rem;
+    border-radius: 12px;
+  }
+
+  .chatMessage {
+    font-size: 0.76rem;
+    padding: 0.55rem 0.75rem;
+  }
+
+  /* ── Wave bars: smaller ── */
+  .waveContainer {
+    height: 45px;
+    margin-top: 1rem;
+    gap: 5px;
+  }
+
+  .waveBar {
+    width: 3px;
+  }
+
+  /* ── Flow items ── */
+  .flow {
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .flow span {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.82rem;
+  }
+
+  /* ── Tech tags: smaller ── */
+  .techGrid {
+    gap: 0.85rem;
+  }
+
+  .tags {
+    gap: 0.4rem;
+    margin-top: 0.85rem;
+  }
+
+  .tags span {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.65rem;
+  }
+
+  /* ── FAQ: premium accordion ── */
+  .faqList {
+    gap: 0.7rem;
+  }
+
+  .faqItem {
+    border-radius: 14px;
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .faqActive {
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: var(--shadow-md), 0 0 20px rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.03);
   }
 
   .faqQuestion {
-    padding: 1.25rem;
-    font-size: 1rem;
+    padding: 1.1rem 1.15rem;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  .faqQuestion span:first-child {
+    text-align: left;
+    flex: 1;
+    padding-right: 0.5rem;
+  }
+
+  .faqIcon {
+    font-size: 1.1rem;
+    color: var(--primary);
   }
 
   .faqAnswerInner p {
-    padding: 0 1.25rem 1.25rem;
+    padding: 0 1.15rem 1.15rem;
+    font-size: 0.86rem;
+    line-height: 1.6;
+  }
+
+  /* ── Contact: conversion-optimized ── */
+  .contactContainer {
+    gap: 2rem;
+  }
+
+  .contactDetails {
+    text-align: center;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .contactTitle {
+    font-size: 1.7rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+
+  .contactSubtitle {
+    font-size: 0.92rem;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  .contactButtons {
+    flex-direction: column;
+    gap: 0.65rem;
+    width: 100%;
   }
 }
+
+/* ── Ultra-small screens (< 480px) ── */
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 1.75rem;
+    line-height: 1.15;
+  }
+
+  .heroSubtitle {
+    font-size: 0.88rem;
+  }
+
+  .heroVisual {
+    min-height: 180px;
+    height: 200px;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .contactTitle {
+    font-size: 1.5rem;
+  }
+
+  .chatPanel h2,
+  .processPanel h2,
+  .voicePanel h2 {
+    font-size: 1.2rem;
+  }
+}
+
