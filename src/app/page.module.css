@@ -442,11 +442,19 @@
   letter-spacing: -0.02em;
 }
 
+.websitesTitle {
+  color: #f5deb3;
+}
+
 .sectionSubtitle {
   margin-top: 0.75rem;
   font-size: 1.05rem;
   color: var(--text-secondary);
   max-width: 640px;
+}
+
+.websitesSubtitle {
+  color: rgba(245, 222, 179, 0.85);
 }
 
 .solutionGrid,

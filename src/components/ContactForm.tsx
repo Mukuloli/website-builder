@@ -9,12 +9,11 @@ export default function ContactForm() {
     email: "",
     company: "",
     message: "",
-    budget: "$1,000 - $3,000",
   });
 
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -32,7 +31,6 @@ export default function ContactForm() {
         email: "",
         company: "",
         message: "",
-        budget: "$1,000 - $3,000",
       });
     }, 1500);
   };
@@ -82,35 +80,17 @@ export default function ContactForm() {
         />
       </div>
 
-      <div className={styles.row}>
-        <div className={styles.inputGroup} style={{ flex: 1 }}>
-          <label htmlFor="company" className={styles.label}>Company Name</label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            value={formData.company}
-            onChange={handleChange}
-            placeholder="Your company"
-            className={styles.input}
-          />
-        </div>
-
-        <div className={styles.inputGroup} style={{ flex: 1 }}>
-          <label htmlFor="budget" className={styles.label}>Estimated Budget</label>
-          <select
-            id="budget"
-            name="budget"
-            value={formData.budget}
-            onChange={handleChange}
-            className={styles.select}
-          >
-            <option value="Under $1,000">Under $1,000</option>
-            <option value="$1,000 - $3,000">$1,000 - $3,000</option>
-            <option value="$3,000 - $10,000">$3,000 - $10,000</option>
-            <option value="$10,000+">$10,000+</option>
-          </select>
-        </div>
+      <div className={styles.inputGroup}>
+        <label htmlFor="company" className={styles.label}>Company Name</label>
+        <input
+          type="text"
+          id="company"
+          name="company"
+          value={formData.company}
+          onChange={handleChange}
+          placeholder="Your company"
+          className={styles.input}
+        />
       </div>
 
       <div className={styles.inputGroup}>

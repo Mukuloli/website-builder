@@ -149,7 +149,7 @@ export default function Home() {
 
             <div className={styles.heroVisual}>
               <Image
-                src="/images/thema image.png"
+                src="/images/front.png"
                 alt="AI automation voice agent and chatbot design"
                 width={900}
                 height={620}
@@ -236,8 +236,8 @@ export default function Home() {
         <div className="container">
           <div className={styles.sectionHeader}>
             <span className="badge">Websites & CMS</span>
-            <h2 className={styles.sectionTitle}>We also build websites for schools, ecommerce brands, and businesses.</h2>
-            <p className={styles.sectionSubtitle}>
+            <h2 className={`${styles.sectionTitle} ${styles.websitesTitle}`}>We also build websites for schools, ecommerce brands, and businesses.</h2>
+            <p className={`${styles.sectionSubtitle} ${styles.websitesSubtitle}`}>
               Your website can include beautiful UI, SEO-friendly pages, fast performance, WhatsApp contact, lead forms, and CMS content management.
             </p>
           </div>
