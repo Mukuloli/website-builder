@@ -184,7 +184,7 @@ export default function Home() {
             <article className={styles.chatPanel}>
               <div className={styles.chatPanelDetails}>
                 <span className="badge">AI Chatbot</span>
-                <h2>Better customer support without manual replies.</h2>
+                <h2>Better <span className={styles.websitesTitle}>customer support</span> without manual replies.</h2>
                 <p>Provide instant answers, capture leads, qualify users, and guide customers using your own business data.</p>
               </div>
               <div className={styles.chatBox}>
@@ -203,7 +203,7 @@ export default function Home() {
 
             <article className={styles.processPanel}>
               <span className="badge">Business Automation</span>
-              <h2>Automate your business processes.</h2>
+              <h2>Automate your <span className={styles.websitesTitle}>business processes</span>.</h2>
               <p>Save time, reduce errors, and increase productivity with AI workflows connected to your tools.</p>
               <div className={styles.flow}>
                 <span>New lead</span>
@@ -215,7 +215,7 @@ export default function Home() {
 
             <article className={styles.voicePanel}>
               <span className="badge">Voice AI</span>
-              <h2>AI voice agents that sound human.</h2>
+              <h2>AI voice agents that <span className={styles.websitesTitle}>sound human</span>.</h2>
               <p>Real-time conversations, natural voice, smart responses, booking flows, and lead qualification.</p>
               <div className={styles.waveContainer}>
                 <div className={styles.waveBar}></div>
@@ -273,7 +273,7 @@ export default function Home() {
         <div className="container">
           <div className={styles.sectionHeader}>
             <span className="badge">Our Process</span>
-            <h2 className={styles.sectionTitle}>From idea to launch with a clear workflow.</h2>
+            <h2 className={styles.sectionTitle}>From <span className={styles.websitesTitle}>idea to launch</span> with a clear workflow.</h2>
           </div>
           <div className={styles.processGrid}>
             {process.map(([step, title, description]) => (
@@ -291,7 +291,7 @@ export default function Home() {
         <div className="container">
           <div className={styles.sectionHeader}>
             <span className="badge">Technologies</span>
-            <h2 className={styles.sectionTitle}>Modern tools for AI, CMS, and full-stack development.</h2>
+            <h2 className={styles.sectionTitle}>Modern tools for <span className={styles.websitesTitle}>AI, CMS</span>, and <span className={styles.websitesTitle}>full-stack development</span>.</h2>
           </div>
           <div className={styles.techGrid}>
             {techGroups.map(([title, items]) => (
@@ -312,7 +312,7 @@ export default function Home() {
         <div className="container">
           <div className={styles.sectionHeader}>
             <span className="badge">FAQ</span>
-            <h2 className={styles.sectionTitle}>Questions before your free consultation.</h2>
+            <h2 className={styles.sectionTitle}>Questions before your <span className={styles.websitesTitle}>free consultation</span>.</h2>
           </div>
           <div className={styles.faqList}>
             {faqs.map(([question, answer], index) => {
@@ -344,7 +344,7 @@ export default function Home() {
           <div className={styles.contactContainer}>
             <div className={styles.contactDetails}>
               <span className="badge">Free Consultation</span>
-              <h2 className={styles.contactTitle}>Ready to build your AI automation or website?</h2>
+              <h2 className={styles.contactTitle}>Ready to build your <span className={styles.websitesTitle}>AI automation</span> or <span className={styles.websitesTitle}>website</span>?</h2>
               <p className={styles.contactSubtitle}>
                 Contact us on WhatsApp or phone at <strong>{phoneNumber}</strong>. The same number works for calls and WhatsApp.
               </p>

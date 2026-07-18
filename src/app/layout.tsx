@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import BackgroundVideo from "@/components/BackgroundVideo";
 
 export const metadata: Metadata = {
   title: "AI Automate | AI Automation, CMS Websites & Full-Stack Development",
@@ -41,15 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="global-video-bg"
-        >
-          <source src="/images/The_Visual_Description_Prompt.mp4" type="video/mp4" />
-        </video>
+        <BackgroundVideo />
         <Navbar />
         <div style={{ minHeight: "calc(100vh - 80px)", position: "relative", zIndex: 1 }}>
           {children}
