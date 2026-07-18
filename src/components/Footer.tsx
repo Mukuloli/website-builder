@@ -9,53 +9,52 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.grid}>
-          {/* Brand Info */}
           <div className={styles.brand}>
             <Link href="/" className={styles.logo}>
-              Mukul<span className="text-gradient">Oli</span>
+              AI<span className="text-gradient">Automate</span>
             </Link>
             <p className={styles.description}>
-              High-converting websites and rapid MVP development for startup founders and small businesses looking to scale their digital presence.
+              AI automation, voice agents, chatbots, CMS websites, school websites, ecommerce brand websites, and full-stack development.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div className={styles.linksGroup}>
             <h4 className={styles.heading}>Services</h4>
             <ul className={styles.linksList}>
-              <li><Link href="/#services" className={styles.link}>Custom Development</Link></li>
-              <li><Link href="/#services" className={styles.link}>Startup MVPs</Link></li>
-              <li><Link href="/#services" className={styles.link}>Ad Landing Pages</Link></li>
-              <li><Link href="/#services" className={styles.link}>E-commerce Stores</Link></li>
+              <li><Link href="/#services" className={styles.link}>AI Voice Agents</Link></li>
+              <li><Link href="/#services" className={styles.link}>AI Chatbots</Link></li>
+              <li><Link href="/#services" className={styles.link}>Business Automation</Link></li>
+              <li><Link href="/#websites" className={styles.link}>School & Ecommerce Websites</Link></li>
             </ul>
           </div>
 
           <div className={styles.linksGroup}>
             <h4 className={styles.heading}>Company</h4>
             <ul className={styles.linksList}>
-              <li><Link href="/#portfolio" className={styles.link}>Our Work</Link></li>
-              <li><Link href="/#reviews" className={styles.link}>Testimonials</Link></li>
-              <li><Link href="/blog" className={styles.link}>Insights Blog</Link></li>
-              <li><Link href="/#contact" className={styles.link}>Get a Quote</Link></li>
+              <li><Link href="/#about" className={styles.link}>About</Link></li>
+              <li><Link href="/#websites" className={styles.link}>CMS Websites</Link></li>
+              <li><Link href="/#process" className={styles.link}>Process</Link></li>
+              <li><Link href="/#faq" className={styles.link}>FAQ</Link></li>
             </ul>
           </div>
 
-          {/* Contact Details */}
           <div className={styles.contactInfo}>
-            <h4 className={styles.heading}>Connect</h4>
+            <h4 className={styles.heading}>Book a Consultation</h4>
             <p className={styles.contactText}>
-              Have a project in mind? Let's build something exceptional together.
+              Free consultation for AI automation, websites, CMS, school websites, and ecommerce projects.
             </p>
-            <a href="mailto:hello@mukuloli.dev" className={styles.emailLink}>
-              hello@mukuloli.dev
+            <a href="https://wa.me/919411398572" target="_blank" rel="noopener noreferrer" className={styles.emailLink}>
+              WhatsApp 9411398572
+            </a>
+            <a href="tel:9411398572" className={styles.emailLink}>
+              Call 9411398572
             </a>
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className={styles.bottomBar}>
           <p className={styles.copyright}>
-            &copy; {currentYear} Mukul Oli. All rights reserved. Designed for ultimate conversion.
+            &copy; {currentYear} AI Automate. All rights reserved.
           </p>
           <div className={styles.socials}>
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>GitHub</a>

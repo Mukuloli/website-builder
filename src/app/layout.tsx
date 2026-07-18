@@ -4,21 +4,30 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Mukul Oli | Premium Web Development & High-Converting Websites",
-  description: "Mukul Oli is a Full Stack Developer creating premium, blazing-fast Next.js websites for small business startups and platforms. Get optimized landing pages, SEO-first structures, and high ad conversions.",
+  title: "AI Automate | AI Automation, CMS Websites & Full-Stack Development",
+  description: "AI automation agency building AI voice agents, chatbots, CMS websites, school websites, ecommerce websites, AI integrations, and full-stack web applications. Call or WhatsApp 9411398572.",
   keywords: [
-    "Mukul Oli",
-    "Full Stack Developer",
-    "Next.js Static Site",
-    "Web Development for Startups",
-    "Landing Page Developer",
-    "High Converting Websites",
-    "Startup MVP"
+    "AI Automation Agency",
+    "AI Voice Agent Development",
+    "AI Chatbot Development",
+    "LiveKit Voice AI",
+    "AI Business Automation",
+    "Generative AI Development",
+    "LangChain Development",
+    "RAG Development",
+    "Custom AI Solutions",
+    "Full-Stack Development",
+    "AI Integration Services",
+    "AI Website Development",
+    "School Website Development",
+    "Ecommerce Website Development",
+    "CMS Website Development",
+    "Content Management System"
   ],
-  authors: [{ name: "Mukul Oli" }],
+  authors: [{ name: "AI Automate" }],
   openGraph: {
-    title: "Mukul Oli | Premium Web Development & High-Converting Websites",
-    description: "Mukul Oli is a Full Stack Developer creating premium, blazing-fast Next.js websites for small business startups and platforms.",
+    title: "AI Automate | AI Automation, CMS Websites & Full-Stack Development",
+    description: "AI voice agents, chatbots, school websites, ecommerce websites, CMS, business automation, and modern web development.",
     type: "website",
     locale: "en_US",
   }

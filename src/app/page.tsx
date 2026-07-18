@@ -4,377 +4,288 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import ContactForm from "@/components/ContactForm";
 
+const phoneNumber = "9411398572";
+const whatsappUrl = `https://wa.me/91${phoneNumber}`;
+
+const services = [
+  {
+    icon: "VOICE",
+    title: "AI Voice Agents",
+    description: "Human-like voice assistants for calls, support, bookings, lead qualification, and 24/7 customer response.",
+  },
+  {
+    icon: "CHAT",
+    title: "AI Chatbots",
+    description: "Smart GPT and RAG chatbots that answer questions using your business data, website content, and documents.",
+  },
+  {
+    icon: "AUTO",
+    title: "AI Automation",
+    description: "Automate repetitive work such as lead follow-up, email tasks, CRM updates, internal support, and workflows.",
+  },
+  {
+    icon: "WEB",
+    title: "Full-Stack Development",
+    description: "Modern websites, SaaS products, dashboards, portals, and custom applications built with scalable technology.",
+  },
+  {
+    icon: "CMS",
+    title: "CMS Websites",
+    description: "Content management systems so you can update pages, blogs, school notices, ecommerce content, and media easily.",
+  },
+  {
+    icon: "API",
+    title: "AI & API Integrations",
+    description: "Connect OpenAI, Gemini, Claude, LiveKit, CRMs, payment gateways, WhatsApp, calendars, and third-party tools.",
+  },
+];
+
+const websiteSolutions = [
+  {
+    title: "School Websites",
+    description: "Professional websites for schools with admissions, notices, events, galleries, staff pages, and CMS updates.",
+  },
+  {
+    title: "Ecommerce Brands",
+    description: "Clean ecommerce websites for product catalogs, offers, payment flows, lead capture, and brand growth.",
+  },
+  {
+    title: "Business Websites",
+    description: "Fast, responsive websites for service companies, startups, agencies, clinics, restaurants, and local businesses.",
+  },
+  {
+    title: "Content Management",
+    description: "CMS setup for blogs, pages, product content, school updates, testimonials, and landing page sections.",
+  },
+];
+
+const process = [
+  ["01", "Discovery", "We understand your business, website goals, automation ideas, and customer journey."],
+  ["02", "Strategy", "We plan the AI workflow, CMS structure, website pages, integrations, and launch roadmap."],
+  ["03", "Development", "We build the website, AI agent, chatbot, dashboard, CMS, or automation system."],
+  ["04", "Launch", "We deploy the solution, connect tools, test flows, and prepare it for real users."],
+];
+
+const techGroups = [
+  ["AI", ["OpenAI GPT", "Gemini", "Claude", "LangChain", "LangGraph", "RAG", "AI Agents"]],
+  ["Voice AI", ["LiveKit", "Speech-to-Text", "Text-to-Speech", "Real-Time AI", "Voice Bots"]],
+  ["Web", ["React", "Next.js", "HTML5", "CSS3", "JavaScript", "Tailwind CSS"]],
+  ["Backend", ["Python", "FastAPI", "Flask", "REST APIs", "Databases"]],
+  ["CMS & Data", ["CMS Setup", "PostgreSQL", "MySQL", "MongoDB", "Pinecone"]],
+  ["Tools", ["Vercel", "GitHub", "Docker", "Firebase", "Payment APIs"]],
+];
+
+const faqs = [
+  ["Can you build websites for schools?", "Yes. We build school websites with admissions pages, notices, galleries, events, staff pages, and CMS-based updates."],
+  ["Can you build ecommerce brand websites?", "Yes. We build clean ecommerce and brand websites with product sections, offers, payment or inquiry flows, and mobile-first design."],
+  ["Can I manage website content myself?", "Yes. We can add a CMS so you can update pages, blogs, notices, product content, and images without editing code."],
+  ["Can you add WhatsApp and phone contact?", `Yes. Your phone and WhatsApp number ${phoneNumber} is added for free consultation contact.`],
+];
+
 export default function Home() {
   return (
-    <div className={styles.main}>
-      {/* Decorative Glow Elements */}
-      <div className={`bg-glow-1 ${styles.glow1}`}></div>
-      <div className={`bg-glow-2 ${styles.glow2}`}></div>
-      <div className={`bg-glow-1 ${styles.glow3}`}></div>
-
-      {/* Hero Section */}
+    <main className={styles.main}>
       <section className={styles.hero}>
         <div className="container">
-          <div className={styles.heroContainer}>
+          <div className={styles.heroGrid}>
             <div className={styles.heroContent}>
-              <div className={styles.trustBadge}>
-                <span className={styles.stars}>★★★★★</span>
-                <span>100% Satisfaction Rate</span>
-              </div>
+              <span className={styles.heroBadge}>AI Automation Agency</span>
               <h1 className={styles.heroTitle}>
-                We Build <span className="text-gradient">High-Converting</span> Websites That Grow Your Business
+                AI solutions, websites, and CMS that work 24/7.
               </h1>
               <p className={styles.heroSubtitle}>
-                Hi, I'm Mukul Oli, a Full Stack Developer. I build blazing-fast static Next.js websites and premium web applications optimized for speed, search engine optimization (SEO), and high-conversion ad campaigns.
+                We build AI voice bots, chatbots, automation systems, school websites, ecommerce brand websites, CMS platforms, and full-stack web applications that save time and grow your business.
               </p>
               <div className={styles.heroActions}>
-                <Link href="#contact" className="btn btn-primary">
-                  Get a Free Proposal
-                </Link>
-                <Link href="#portfolio" className="btn btn-secondary">
-                  View Our Work
-                </Link>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                  WhatsApp Free Consultation
+                </a>
+                <a href={`tel:${phoneNumber}`} className="btn btn-secondary">
+                  Call {phoneNumber}
+                </a>
               </div>
             </div>
 
-            <div className={styles.heroImageContainer}>
-              <div className="animate-float">
-                <Image
-                  src="/images/hero.png"
-                  alt="Mukul Oli Full Stack Developer Tech Showcase"
-                  width={500}
-                  height={380}
-                  className={styles.heroImage}
-                  priority
-                />
+            <div className={styles.heroVisual}>
+              <Image
+                src="/images/thema image.png"
+                alt="AI automation voice agent and chatbot design"
+                width={900}
+                height={620}
+                className={styles.heroImage}
+                priority
+              />
+              <div className={styles.heroFloatOne}>AI Chatbots</div>
+              <div className={styles.heroFloatTwo}>Voice AI</div>
+              <div className={styles.heroFloatThree}>Automation</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" className={styles.serviceStrip}>
+        <div className="container">
+          <div className={styles.serviceCards}>
+            {services.map((service) => (
+              <article key={service.title} className={styles.serviceCard}>
+                <span className={styles.serviceIcon}>{service.icon}</span>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className={styles.featureSection}>
+        <div className="container">
+          <div className={styles.featureGrid}>
+            <article className={styles.chatPanel}>
+              <div>
+                <span className="badge">AI Chatbot</span>
+                <h2>Better customer support without manual replies.</h2>
+                <p>Provide instant answers, capture leads, qualify users, and guide customers using your own business data.</p>
               </div>
-            </div>
+              <div className={styles.chatBox}>
+                <div className={styles.chatTop}>AI Assistant <span>Online</span></div>
+                <p>Hello! How can I help you today?</p>
+                <strong>I need help with my order.</strong>
+                <p>Sure, share your order ID and I will check it.</p>
+              </div>
+            </article>
+
+            <article className={styles.processPanel}>
+              <span className="badge">Business Automation</span>
+              <h2>Automate your business processes.</h2>
+              <p>Save time, reduce errors, and increase productivity with AI workflows connected to your tools.</p>
+              <div className={styles.flow}>
+                <span>New lead</span>
+                <span>AI qualifies</span>
+                <span>CRM update</span>
+                <span>Email sent</span>
+              </div>
+            </article>
+
+            <article className={styles.voicePanel}>
+              <span className="badge">Voice AI</span>
+              <h2>AI voice agents that sound human.</h2>
+              <p>Real-time conversations, natural voice, smart responses, booking flows, and lead qualification.</p>
+              <div className={styles.wave}></div>
+            </article>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className={styles.stats}>
-        <div className="container">
-          <div className={styles.statsGrid}>
-            <div className={styles.statItem}>
-              <div className={styles.statNum}>100%</div>
-              <div className={styles.statLabel}>Page Speed Score</div>
-            </div>
-            <div className={styles.statItem}>
-              <div className={styles.statNum}>50+</div>
-              <div className={styles.statLabel}>Startups Launched</div>
-            </div>
-            <div className={styles.statItem}>
-              <div className={styles.statNum}>3.5x</div>
-              <div className={styles.statLabel}>Average Conversion Uplift</div>
-            </div>
-            <div className={styles.statItem}>
-              <div className={styles.statNum}>24/7</div>
-              <div className={styles.statLabel}>Dedicated Support</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className={styles.services}>
-        <div className="container">
-          <div className={styles.sectionHeader}>
-            <span className="badge">Services</span>
-            <h2 className={styles.sectionTitle}>What We Do For Your Brand</h2>
-            <p className={styles.sectionSubtitle}>
-              Tailored solutions designed to attract high-intent visitors and turn them into paying customers.
-            </p>
-          </div>
-
-          <div className={styles.servicesGrid}>
-            {/* Service 1 */}
-            <div className={styles.serviceCard}>
-              <div className={styles.serviceIcon}>⚡</div>
-              <h3 className={styles.serviceTitle}>Custom Next.js Sites</h3>
-              <p className={styles.serviceDesc}>
-                Ultra-fast, fully responsive, static websites built with Next.js and custom CSS. Ideal for small businesses looking for maximum SEO and flawless styling.
-              </p>
-              <ul className={styles.serviceList}>
-                <li className={styles.serviceListItem}><span className={styles.checkmark}>✓</span> High Google PageSpeed score</li>
-                <li className={styles.serviceListItem}><span className={styles.checkmark}>✓</span> Static Generation (SSG)</li>
-                <li className={styles.serviceListItem}><span className={styles.checkmark}>✓</span> Mobile-first responsive layouts</li>
-              </ul>
-            </div>
-
-            {/* Service 2 */}
-            <div className={styles.serviceCard}>
-              <div className={styles.serviceIcon}>🚀</div>
-              <h3 className={styles.serviceTitle}>High-Converting Landing Pages</h3>
-              <p className={styles.serviceDesc}>
-                Specifically engineered for your Google and Facebook Ad campaigns. A/B tested layout models focused entirely on driving inquiries, leads, and sales.
-              </p>
-              <ul className={styles.serviceList}>
-                <li className={styles.serviceListItem}><span className={styles.checkmark}>✓</span> Ad campaign readiness</li>
-                <li className={styles.serviceListItem}><span className={styles.checkmark}>✓</span> Built-in conversion analytics</li>
-                <li className={styles.serviceListItem}><span className={styles.checkmark}>✓</span> Catchy UX layout design</li>
-              </ul>
-            </div>
-
-            {/* Service 3 */}
-            <div className={styles.serviceCard}>
-              <div className={styles.serviceIcon}>🛠</div>
-              <h3 className={styles.serviceTitle}>Full Stack Web Applications</h3>
-              <p className={styles.serviceDesc}>
-                Need something more dynamic? We design database-driven client portals, dashboard backends, and rapid startup MVP solutions to prove your product.
-              </p>
-              <ul className={styles.serviceList}>
-                <li className={styles.serviceListItem}><span className={styles.checkmark}>✓</span> API integrations & Databases</li>
-                <li className={styles.serviceListItem}><span className={styles.checkmark}>✓</span> User authentication & Stripe payments</li>
-                <li className={styles.serviceListItem}><span className={styles.checkmark}>✓</span> Scalable serverless logic</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Portfolio Section */}
-      <section id="portfolio" className={styles.portfolio}>
+      <section id="websites" className={styles.section}>
         <div className="container">
           <div className={styles.sectionHeader}>
-            <span className="badge">Portfolio</span>
-            <h2 className={styles.sectionTitle}>Recent Startup Success Stories</h2>
+            <span className="badge">Websites & CMS</span>
+            <h2 className={styles.sectionTitle}>We also build websites for schools, ecommerce brands, and businesses.</h2>
             <p className={styles.sectionSubtitle}>
-              Take a look at how we have helped local startups and online platforms establish high-impact digital presence.
+              Your website can include beautiful UI, SEO-friendly pages, fast performance, WhatsApp contact, lead forms, and CMS content management.
             </p>
           </div>
-
-          <div className={styles.portfolioGrid}>
-            {/* Project 1 */}
-            <div className={styles.portfolioCard}>
-              <div className={styles.portfolioImgWrapper}>
-                <div className={styles.projectMockup}>
-                  <div className={styles.mockBrowserBar}>
-                    <div className={styles.mockDot}></div>
-                    <div className={styles.mockDot}></div>
-                    <div className={styles.mockDot}></div>
-                  </div>
-                  <div className={styles.mockContent}>
-                    <span style={{ fontSize: "2rem" }}>🩺</span>
-                  </div>
-                </div>
-              </div>
-              <div className={styles.portfolioInfo}>
-                <div className={styles.projectMeta}>
-                  <span>Healthcare Startup</span>
-                  <span>•</span>
-                  <span>Next.js Static Site</span>
-                </div>
-                <h3 className={styles.projectTitle}>CarePulse Digital Platform</h3>
-                <p className={styles.serviceDesc}>
-                  A clean, responsive static website designed to capture therapist leads. Boosted organic SEO traffic by 180% within the first 6 weeks of release.
-                </p>
-                <Link href="#contact" className={styles.projectLink}>
-                  Request Case Study &rarr;
-                </Link>
-              </div>
-            </div>
-
-            {/* Project 2 */}
-            <div className={styles.portfolioCard}>
-              <div className={styles.portfolioImgWrapper}>
-                <div className={styles.projectMockup}>
-                  <div className={styles.mockBrowserBar}>
-                    <div className={styles.mockDot}></div>
-                    <div className={styles.mockDot}></div>
-                    <div className={styles.mockDot}></div>
-                  </div>
-                  <div className={styles.mockContent}>
-                    <span style={{ fontSize: "2rem" }}>📈</span>
-                  </div>
-                </div>
-              </div>
-              <div className={styles.portfolioInfo}>
-                <div className={styles.projectMeta}>
-                  <span>SaaS Startup</span>
-                  <span>•</span>
-                  <span>Full Stack MVP</span>
-                </div>
-                <h3 className={styles.projectTitle}>FinAlytics Premium Dashboard</h3>
-                <p className={styles.serviceDesc}>
-                  An intuitive MVP analytics panel featuring chart visualizations, serverless database connectivity, and Stripe integrations for user subscriptions.
-                </p>
-                <Link href="#contact" className={styles.projectLink}>
-                  Request Case Study &rarr;
-                </Link>
-              </div>
-            </div>
+          <div className={styles.solutionGrid}>
+            {websiteSolutions.map((item) => (
+              <article key={item.title} className={styles.solutionCard}>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Reviews Section */}
-      <section id="reviews" className={styles.reviews}>
+      <section id="why-us" className={styles.benefitsBar}>
+        <div className="container">
+          <div className={styles.benefitsGrid}>
+            <div><strong>Custom Solutions</strong><span>Built for your business</span></div>
+            <div><strong>Fast Development</strong><span>On-time project delivery</span></div>
+            <div><strong>Scalable & Secure</strong><span>Professional architecture</span></div>
+            <div><strong>Modern Technology</strong><span>Latest AI and web tools</span></div>
+            <div><strong>Ongoing Support</strong><span>Help after launch</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="process" className={styles.section}>
         <div className="container">
           <div className={styles.sectionHeader}>
-            <span className="badge">Reviews</span>
-            <h2 className={styles.sectionTitle}>What My Clients Say</h2>
-            <p className={styles.sectionSubtitle}>
-              Client feedback is the ultimate metric of success. Here is what business owners say about Mukul Oli's services.
-            </p>
+            <span className="badge">Our Process</span>
+            <h2 className={styles.sectionTitle}>From idea to launch with a clear workflow.</h2>
           </div>
-
-          <div className={styles.reviewsGrid}>
-            {/* Review 1 */}
-            <div className={styles.reviewCard}>
-              <div className={styles.reviewRating}>★★★★★</div>
-              <p className={styles.reviewQuote}>
-                "Mukul completely redesigned our local business landing page. Our Google Ads conversions jumped from 4% to nearly 17% in a week. The site loads instantly, and his Next.js setup is incredibly clean!"
-              </p>
-              <div className={styles.reviewUser}>
-                <div className={styles.userAvatar}>AK</div>
-                <div className={styles.userInfo}>
-                  <span className={styles.userName}>Aarav Kumar</span>
-                  <span className={styles.userRole}>Founder, GreenClean LLC</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Review 2 */}
-            <div className={styles.reviewCard}>
-              <div className={styles.reviewRating}>★★★★★</div>
-              <p className={styles.reviewQuote}>
-                "We needed a rapid MVP for our tech startup. Mukul built the landing page and the database dashboard in record time. Professional, highly skilled, and responds instantly to changes. Recommend 100%!"
-              </p>
-              <div className={styles.reviewUser}>
-                <div className={styles.userAvatarSec}>SM</div>
-                <div className={styles.userInfo}>
-                  <span className={styles.userName}>Sanya Mehta</span>
-                  <span className={styles.userRole}>CTO, PaySwift Solutions</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Review 3 */}
-            <div className={styles.reviewCard}>
-              <div className={styles.reviewRating}>★★★★★</div>
-              <p className={styles.reviewQuote}>
-                "I was skeptical about static sites, but Mukul proved me wrong. Our site traffic has tripled because the SEO score is perfect, and our mobile visitors are finally converting. Best developer in the startup space."
-              </p>
-              <div className={styles.reviewUser}>
-                <div className={styles.userAvatar}>RD</div>
-                <div className={styles.userInfo}>
-                  <span className={styles.userName}>Rajesh Dixit</span>
-                  <span className={styles.userRole}>Owner, Dixit Trading Corp</span>
-                </div>
-              </div>
-            </div>
+          <div className={styles.processGrid}>
+            {process.map(([step, title, description]) => (
+              <article key={step} className={styles.processCard}>
+                <span>{step}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Blog Preview Section */}
-      <section className={styles.blogPreview}>
+      <section id="technologies" className={styles.techSection}>
         <div className="container">
           <div className={styles.sectionHeader}>
-            <span className="badge">Insights</span>
-            <h2 className={styles.sectionTitle}>Read Our Growth Guides</h2>
-            <p className={styles.sectionSubtitle}>
-              Tips, guides, and insights to help startup founders optimize their web portals and digital marketing.
-            </p>
+            <span className="badge">Technologies</span>
+            <h2 className={styles.sectionTitle}>Modern tools for AI, CMS, and full-stack development.</h2>
           </div>
-
-          <div className={styles.blogGrid}>
-            {/* Blog Post 1 */}
-            <div className={styles.blogCard}>
-              <div className={styles.blogImgWrapper}>
-                <Image
-                  src="/images/blog_dev.png"
-                  alt="Next.js static site speed"
-                  fill
-                  className={styles.blogImg}
-                />
-              </div>
-              <div className={styles.blogInfo}>
-                <span className={styles.blogDate}>July 15, 2026 • Web Development</span>
-                <Link href="/blog/why-nextjs-is-best-for-startups">
-                  <h3 className={styles.blogCardTitle}>Why Next.js is the Ultimate Framework for Small Business Startups</h3>
-                </Link>
-                <p className={styles.blogCardDesc}>
-                  Discover why migrating your landing page or startup portfolio to Next.js static site generation results in massive SEO gains and fast loading.
-                </p>
-                <Link href="/blog/why-nextjs-is-best-for-startups" className={styles.projectLink}>
-                  Read Article &rarr;
-                </Link>
-              </div>
-            </div>
-
-            {/* Blog Post 2 */}
-            <div className={styles.blogCard}>
-              <div className={styles.blogImgWrapper}>
-                <Image
-                  src="/images/blog_mkt.png"
-                  alt="Ad landing page conversion optimization"
-                  fill
-                  className={styles.blogImg}
-                />
-              </div>
-              <div className={styles.blogInfo}>
-                <span className={styles.blogDate}>July 10, 2026 • Conversion Rate Optimization</span>
-                <Link href="/blog/high-converting-landing-pages-for-ads">
-                  <h3 className={styles.blogCardTitle}>How to Design Landing Pages Optimized for High-Converting Google & Meta Ads</h3>
-                </Link>
-                <p className={styles.blogCardDesc}>
-                  Stop wasting ad budget on slow, poorly formatted pages. Learn the structural blueprint of high-converting landing pages.
-                </p>
-                <Link href="/blog/high-converting-landing-pages-for-ads" className={styles.projectLink}>
-                  Read Article &rarr;
-                </Link>
-              </div>
-            </div>
+          <div className={styles.techGrid}>
+            {techGroups.map(([title, items]) => (
+              <article key={title} className={styles.techCard}>
+                <h3>{title}</h3>
+                <div className={styles.tags}>
+                  {(items as string[]).map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
+      <section id="faq" className={styles.section}>
+        <div className="container">
+          <div className={styles.sectionHeader}>
+            <span className="badge">FAQ</span>
+            <h2 className={styles.sectionTitle}>Questions before your free consultation.</h2>
+          </div>
+          <div className={styles.faqList}>
+            {faqs.map(([question, answer]) => (
+              <article key={question} className={styles.faqItem}>
+                <h3>{question}</h3>
+                <p>{answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="contact" className={styles.contactSection}>
         <div className="container">
           <div className={styles.contactContainer}>
             <div className={styles.contactDetails}>
-              <div className={styles.contactHeader}>
-                <span className="badge">Start Project</span>
-                <h2 className={styles.contactTitle}>Ready to Scale Your Startup?</h2>
-                <p className={styles.heroSubtitle}>
-                  Let's schedule a 15-minute discovery call to talk about your requirements, evaluate your current speed/SEO score, and design a custom roadmap.
-                </p>
+              <span className="badge">Free Consultation</span>
+              <h2 className={styles.contactTitle}>Ready to build your AI automation or website?</h2>
+              <p className={styles.heroSubtitle}>
+                Contact us on WhatsApp or phone at <strong>{phoneNumber}</strong>. The same number works for calls and WhatsApp.
+              </p>
+              <div className={styles.contactButtons}>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                  WhatsApp {phoneNumber}
+                </a>
+                <a href={`tel:${phoneNumber}`} className="btn btn-secondary">
+                  Call Now
+                </a>
               </div>
-              <ul className={styles.contactBenefits}>
-                <li className={styles.benefitItem}>
-                  <div className={styles.benefitIcon}>⭐</div>
-                  <div>
-                    <h4 className={styles.benefitTitle}>Free Speed & SEO Audit</h4>
-                    <p className={styles.benefitDesc}>I'll audit your current landing page and pinpoint conversion leaks.</p>
-                  </div>
-                </li>
-                <li className={styles.benefitItem}>
-                  <div className={styles.benefitIcon}>🛡️</div>
-                  <div>
-                    <h4 className={styles.benefitTitle}>Startup-Friendly Pricing</h4>
-                    <p className={styles.benefitDesc}>Custom package milestones fitted to your specific startup budget.</p>
-                  </div>
-                </li>
-                <li className={styles.benefitItem}>
-                  <div className={styles.benefitIcon}>⚡</div>
-                  <div>
-                    <h4 className={styles.benefitTitle}>Lightning-Fast Delivery</h4>
-                    <p className={styles.benefitDesc}>Clean, fully functional code in as little as 10-14 days.</p>
-                  </div>
-                </li>
-              </ul>
             </div>
-
-            <div>
-              <ContactForm />
-            </div>
+            <ContactForm />
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

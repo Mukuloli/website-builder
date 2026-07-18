@@ -25,7 +25,6 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus("loading");
 
-    // Simulate form submission API (for static site, we can use Web3Forms or standard mockup)
     setTimeout(() => {
       setStatus("success");
       setFormData({
@@ -42,9 +41,9 @@ export default function ContactForm() {
     return (
       <div className={styles.successCard}>
         <div className={styles.successIcon}>✓</div>
-        <h3 className={styles.successTitle}>Thank You, Project Request Sent!</h3>
+        <h3 className={styles.successTitle}>Thank you, consultation request sent.</h3>
         <p className={styles.successText}>
-          Your inquiry has been successfully received. Mukul Oli will review your requirements and reach out to you within the next 24 hours to schedule a discovery call.
+          Your inquiry has been received. We will review your requirements and respond within 24 hours to schedule a discovery call.
         </p>
         <button className="btn btn-primary" onClick={() => setStatus("idle")}>
           Send Another Message
@@ -64,7 +63,7 @@ export default function ContactForm() {
           required
           value={formData.name}
           onChange={handleChange}
-          placeholder="Mukul Oli"
+          placeholder="Your name"
           className={styles.input}
         />
       </div>
@@ -78,21 +77,21 @@ export default function ContactForm() {
           required
           value={formData.email}
           onChange={handleChange}
-          placeholder="mukul@example.com"
+          placeholder="you@example.com"
           className={styles.input}
         />
       </div>
 
       <div className={styles.row}>
         <div className={styles.inputGroup} style={{ flex: 1 }}>
-          <label htmlFor="company" className={styles.label}>Company / Startup Name</label>
+          <label htmlFor="company" className={styles.label}>Company Name</label>
           <input
             type="text"
             id="company"
             name="company"
             value={formData.company}
             onChange={handleChange}
-            placeholder="My Business LLC"
+            placeholder="Your company"
             className={styles.input}
           />
         </div>
@@ -115,7 +114,7 @@ export default function ContactForm() {
       </div>
 
       <div className={styles.inputGroup}>
-        <label htmlFor="message" className={styles.label}>Tell me about your project *</label>
+        <label htmlFor="message" className={styles.label}>Tell us about your automation idea *</label>
         <textarea
           id="message"
           name="message"
@@ -123,7 +122,7 @@ export default function ContactForm() {
           rows={5}
           value={formData.message}
           onChange={handleChange}
-          placeholder="What features are you looking to build? Who is your target audience?"
+          placeholder="Tell us if you need AI automation, a chatbot, voice agent, school website, ecommerce website, CMS, or full-stack app."
           className={styles.textarea}
         ></textarea>
       </div>
@@ -131,14 +130,14 @@ export default function ContactForm() {
       <button
         type="submit"
         className="btn btn-primary"
-        style={{ width: "100%", marginTop: "1rem" }}
+        style={{ width: "100%", marginTop: "0.5rem" }}
         disabled={status === "loading"}
       >
-        {status === "loading" ? "Submitting Request..." : "Launch My Project Proposal"}
+        {status === "loading" ? "Submitting Request..." : "Schedule a Free Consultation"}
       </button>
 
       <p className={styles.disclaimer}>
-        🔒 Your data is fully encrypted and never shared. We usually reply in under 24 hours.
+        Your details stay private. We usually reply in under 24 hours.
       </p>
     </form>
   );

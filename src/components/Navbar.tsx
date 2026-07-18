@@ -24,25 +24,24 @@ export default function Navbar() {
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
         <NextLink href="/" className={styles.logo}>
-          Mukul<span className="text-gradient">Oli</span>
+          AI<span className="text-gradient">Automate</span>
         </NextLink>
 
-        {/* Desktop Menu */}
         <div className={styles.navLinks}>
+          <NextLink href="/#about" className={styles.link}>About</NextLink>
           <NextLink href="/#services" className={styles.link}>Services</NextLink>
-          <NextLink href="/#portfolio" className={styles.link}>Portfolio</NextLink>
-          <NextLink href="/#reviews" className={styles.link}>Reviews</NextLink>
-          <NextLink href="/blog" className={styles.link}>Blog</NextLink>
+          <NextLink href="/#websites" className={styles.link}>Websites</NextLink>
+          <NextLink href="/#technologies" className={styles.link}>Technologies</NextLink>
+          <NextLink href="/#process" className={styles.link}>Process</NextLink>
           <NextLink href="/#contact" className={styles.link}>Contact</NextLink>
         </div>
 
         <div className={styles.actions}>
-          <NextLink href="/#contact" className="btn btn-primary">
-            Get Proposal
-          </NextLink>
+          <a href="https://wa.me/919411398572" target="_blank" rel="noopener noreferrer" className={styles.phoneLink}>
+            WhatsApp 9411398572
+          </a>
         </div>
 
-        {/* Mobile Toggle */}
         <button 
           className={`${styles.hamburger} ${isOpen ? styles.active : ""}`}
           onClick={() => setIsOpen(!isOpen)}
@@ -54,16 +53,16 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <div className={`${styles.mobileMenu} ${isOpen ? styles.mobileOpen : ""}`}>
+        <NextLink href="/#about" className={styles.mobileLink} onClick={() => setIsOpen(false)}>About</NextLink>
         <NextLink href="/#services" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Services</NextLink>
-        <NextLink href="/#portfolio" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Portfolio</NextLink>
-        <NextLink href="/#reviews" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Reviews</NextLink>
-        <NextLink href="/blog" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Blog</NextLink>
+        <NextLink href="/#websites" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Websites</NextLink>
+        <NextLink href="/#technologies" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Technologies</NextLink>
+        <NextLink href="/#process" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Process</NextLink>
         <NextLink href="/#contact" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Contact</NextLink>
-        <NextLink href="/#contact" className="btn btn-primary" style={{ marginTop: '1.5rem', width: '100%' }} onClick={() => setIsOpen(false)}>
-          Get Proposal
-        </NextLink>
+        <a href="https://wa.me/919411398572" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ marginTop: '1.5rem', width: '100%' }} onClick={() => setIsOpen(false)}>
+          WhatsApp 9411398572
+        </a>
       </div>
     </nav>
   );
