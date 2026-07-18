@@ -28,11 +28,18 @@
 .blogCard {
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blogCard:hover {
+  border-color: var(--border-color-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(139, 92, 246, 0.05);
 }
 
 .blogImgWrapper {
@@ -137,8 +144,9 @@
   gap: 0.9rem;
   padding: 1rem;
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  background: #ffffff;
+  border-radius: 10px;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
 }
 
 .authorAvatar {

@@ -30,6 +30,7 @@ export default function BlogList() {
                   alt={post.title}
                   fill
                   className={styles.blogImg}
+                  loading="lazy"
                 />
               </div>
               <div className={styles.blogInfo}>
