@@ -20,7 +20,7 @@
 
   --gradient-primary: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
   --gradient-secondary: linear-gradient(135deg, #d4d4d8 0%, #71717a 100%);
-  --gradient-neon: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+  --gradient-neon: linear-gradient(135deg, #f5deb3 0%, #d8b065 100%);
   --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
 
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -308,4 +308,16 @@ select {
     font-size: 0.68rem;
     padding: 0.4rem 0.8rem;
   }
+}
+
+.global-video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.22; /* clearly visible background video while keeping text readable */
+  pointer-events: none;
 }

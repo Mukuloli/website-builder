@@ -41,8 +41,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="global-video-bg"
+        >
+          <source src="/images/The_Visual_Description_Prompt.mp4" type="video/mp4" />
+        </video>
         <Navbar />
-        <div style={{ minHeight: "calc(100vh - 80px)" }}>
+        <div style={{ minHeight: "calc(100vh - 80px)", position: "relative", zIndex: 1 }}>
           {children}
         </div>
         <Footer />
