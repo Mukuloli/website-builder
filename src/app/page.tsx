@@ -236,9 +236,11 @@ export default function Home() {
         <div className="container">
           <div className={styles.sectionHeader}>
             <span className="badge">Websites & CMS</span>
-            <h2 className={`${styles.sectionTitle} ${styles.websitesTitle}`}>We also build websites for schools, ecommerce brands, and businesses.</h2>
-            <p className={`${styles.sectionSubtitle} ${styles.websitesSubtitle}`}>
-              Your website can include beautiful UI, SEO-friendly pages, fast performance, WhatsApp contact, lead forms, and CMS content management.
+            <h2 className={styles.sectionTitle}>
+              We also build websites for <span className={styles.websitesTitle}>schools</span>, <span className={styles.websitesTitle}>ecommerce brands</span>, and <span className={styles.websitesTitle}>businesses</span>.
+            </h2>
+            <p className={styles.sectionSubtitle}>
+              Your website can include <span className={styles.websitesTitle}>beautiful UI</span>, <span className={styles.websitesTitle}>SEO-friendly pages</span>, <span className={styles.websitesTitle}>fast performance</span>, <span className={styles.websitesTitle}>WhatsApp contact</span>, <span className={styles.websitesTitle}>lead forms</span>, and <span className={styles.websitesTitle}>CMS content management</span>.
             </p>
           </div>
           <div className={styles.solutionGrid}>
