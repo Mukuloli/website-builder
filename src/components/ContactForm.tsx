@@ -27,13 +27,21 @@ export default function ContactForm() {
     setStatus("loading");
 
     try {
-      await addDoc(collection(db, "contacts"), {
-        name: formData.name,
-        email: formData.email,
-        company: formData.company,
-        message: formData.message,
-        createdAt: serverTimestamp(),
-      });
+      // Timeout after 10 seconds to prevent the form from hanging forever
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error("Request timed out")), 10000)
+      );
+
+      await Promise.race([
+        addDoc(collection(db, "contacts"), {
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message,
+          createdAt: serverTimestamp(),
+        }),
+        timeoutPromise,
+      ]);
 
       setStatus("success");
       setFormData({
