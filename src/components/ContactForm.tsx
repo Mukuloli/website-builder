@@ -6,26 +6,94 @@ import { db } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import emailjs from "@emailjs/browser";
 
+const COUNTRY_CODES = [
+  { code: "+91", label: "🇮🇳 +91 (India)" },
+  { code: "+1", label: "🇺🇸 +1 (USA / CA)" },
+  { code: "+44", label: "🇬🇧 +44 (UK)" },
+  { code: "+971", label: "🇦🇪 +971 (UAE)" },
+  { code: "+61", label: "🇦🇺 +61 (Australia)" },
+  { code: "+65", label: "🇸🇬 +65 (Singapore)" },
+  { code: "+49", label: "🇩🇪 +49 (Germany)" },
+  { code: "+33", label: "🇫🇷 +33 (France)" },
+  { code: "+966", label: "🇸🇦 +966 (Saudi Arabia)" },
+  { code: "+974", label: "🇶🇦 +974 (Qatar)" },
+  { code: "+92", label: "🇵🇰 +92 (Pakistan)" },
+  { code: "+880", label: "🇧🇩 +880 (Bangladesh)" },
+  { code: "+977", label: "🇳🇵 +977 (Nepal)" },
+];
+
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    company: "",
+    countryCode: "+91",
+    phone: "",
     message: "",
   });
 
+  const [errors, setErrors] = useState<{
+    name?: string;
+    email?: string;
+    phone?: string;
+    message?: string;
+  }>({});
+
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    // Clear field error on change
+    if (errors[name as keyof typeof errors]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
+  };
+
+  const validate = () => {
+    const newErrors: typeof errors = {};
+
+    // Validate Name
+    if (!formData.name.trim() || formData.name.trim().length < 2) {
+      newErrors.name = "Please enter your valid name (at least 2 characters).";
+    }
+
+    // Strict Email Regex Validation
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!formData.email.trim() || !emailRegex.test(formData.email.trim())) {
+      newErrors.email = "Please enter a valid email address (e.g. name@example.com).";
+    }
+
+    // Validate Phone/WhatsApp Number
+    const rawPhone = formData.phone.replace(/[\s-]/g, "");
+    if (!rawPhone || !/^\d{7,15}$/.test(rawPhone)) {
+      newErrors.phone = "Please enter a valid phone/WhatsApp number (7-15 digits).";
+    }
+
+    // Validate Message
+    if (!formData.message.trim() || formData.message.trim().length < 10) {
+      newErrors.message = "Please write a message describing your requirements (at least 10 characters).";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validate()) {
+      return;
+    }
+
     setStatus("loading");
+
+    const fullPhoneNumber = `${formData.countryCode} ${formData.phone.trim()}`;
 
     try {
       // Timeout after 10 seconds to prevent the form from hanging forever
@@ -35,10 +103,10 @@ export default function ContactForm() {
 
       // Save to Firestore
       const firestoreTask = addDoc(collection(db, "contacts"), {
-        name: formData.name,
-        email: formData.email,
-        company: formData.company,
-        message: formData.message,
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: fullPhoneNumber,
+        message: formData.message.trim(),
         createdAt: serverTimestamp(),
       });
 
@@ -53,10 +121,10 @@ export default function ContactForm() {
               serviceId,
               templateId,
               {
-                from_name: formData.name,
-                from_email: formData.email,
-                company: formData.company || "N/A",
-                message: formData.message,
+                from_name: formData.name.trim(),
+                from_email: formData.email.trim(),
+                phone: fullPhoneNumber,
+                message: formData.message.trim(),
               },
               publicKey
             )
@@ -71,9 +139,11 @@ export default function ContactForm() {
       setFormData({
         name: "",
         email: "",
-        company: "",
+        countryCode: "+91",
+        phone: "",
         message: "",
       });
+      setErrors({});
     } catch (error) {
       console.error("Error submitting form:", error);
       setStatus("error");
@@ -111,7 +181,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit} noValidate>
       <div className={styles.inputGroup}>
         <label htmlFor="name" className={styles.label}>Your Name *</label>
         <input
@@ -121,9 +191,10 @@ export default function ContactForm() {
           required
           value={formData.name}
           onChange={handleChange}
-          placeholder="Your name"
-          className={styles.input}
+          placeholder="Your full name"
+          className={`${styles.input} ${errors.name ? styles.inputError : ""}`}
         />
+        {errors.name && <span className={styles.errorText}>{errors.name}</span>}
       </div>
 
       <div className={styles.inputGroup}>
@@ -136,35 +207,54 @@ export default function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           placeholder="you@example.com"
-          className={styles.input}
+          className={`${styles.input} ${errors.email ? styles.inputError : ""}`}
         />
+        {errors.email && <span className={styles.errorText}>{errors.email}</span>}
       </div>
 
       <div className={styles.inputGroup}>
-        <label htmlFor="company" className={styles.label}>Company Name</label>
-        <input
-          type="text"
-          id="company"
-          name="company"
-          value={formData.company}
-          onChange={handleChange}
-          placeholder="Your company"
-          className={styles.input}
-        />
+        <label htmlFor="phone" className={styles.label}>Phone / WhatsApp Number *</label>
+        <div className={styles.phoneInputGroup}>
+          <select
+            name="countryCode"
+            value={formData.countryCode}
+            onChange={handleChange}
+            className={styles.countrySelect}
+            aria-label="Country Code"
+          >
+            {COUNTRY_CODES.map((item) => (
+              <option key={item.code} value={item.code}>
+                {item.label}
+              </option>
+            ))}
+          </select>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="98765 43210"
+            className={`${styles.input} ${errors.phone ? styles.inputError : ""}`}
+          />
+        </div>
+        {errors.phone && <span className={styles.errorText}>{errors.phone}</span>}
       </div>
 
       <div className={styles.inputGroup}>
-        <label htmlFor="message" className={styles.label}>Tell us about your automation idea *</label>
+        <label htmlFor="message" className={styles.label}>Tell us about your requirement *</label>
         <textarea
           id="message"
           name="message"
           required
-          rows={5}
+          rows={4}
           value={formData.message}
           onChange={handleChange}
-          placeholder="Tell us if you need AI automation, a chatbot, voice agent, school website, ecommerce website, CMS, or full-stack app."
-          className={styles.textarea}
+          placeholder="Describe if you need AI automation, chatbot, voice agent, school website, ecommerce website, CMS, or custom full-stack app."
+          className={`${styles.textarea} ${errors.message ? styles.inputError : ""}`}
         ></textarea>
+        {errors.message && <span className={styles.errorText}>{errors.message}</span>}
       </div>
 
       <button
