@@ -321,3 +321,35 @@ select {
   opacity: 0.22; /* clearly visible background video while keeping text readable */
   pointer-events: none;
 }
+
+/* ── Scroll Reveal Animations (Left / Right) ── */
+
+.sr-init {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sr-left {
+  transform: translateX(-80px);
+}
+
+.sr-right {
+  transform: translateX(80px);
+}
+
+.sr-visible {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .sr-init {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 import ContactForm from "@/components/ContactForm";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const phoneNumber = "9411398572";
 const whatsappQuery = encodeURIComponent("Hello! I am interested in a free consultation for AI automation and web development.");
@@ -167,12 +168,14 @@ export default function Home() {
       <section id="services" className={styles.serviceStrip}>
         <div className="container">
           <div className={styles.serviceCards}>
-            {services.map((service) => (
-              <article key={service.title} className={styles.serviceCard}>
-                <span className={styles.serviceIcon}>{service.icon}</span>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-              </article>
+            {services.map((service, i) => (
+              <ScrollReveal key={service.title} direction={i % 2 === 0 ? "left" : "right"} delay={i * 80}>
+                <article className={styles.serviceCard}>
+                  <span className={styles.serviceIcon}>{service.icon}</span>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -181,77 +184,87 @@ export default function Home() {
       <section id="about" className={styles.featureSection}>
         <div className="container">
           <div className={styles.featureGrid}>
-            <article className={styles.chatPanel}>
-              <div className={styles.chatPanelDetails}>
-                <span className="badge">AI Chatbot</span>
-                <h2>Better <span className={styles.websitesTitle}>customer support</span> without manual replies.</h2>
-                <p>Provide instant answers, capture leads, qualify users, and guide customers using your own business data.</p>
-              </div>
-              <div className={styles.chatBox}>
-                <div className={styles.chatTop}>
-                  <div className={styles.avatar}>AI</div>
-                  <div>
-                    <div className={styles.chatName}>AI Assistant</div>
-                    <span className={styles.chatStatus}>Online</span>
-                  </div>
+            <ScrollReveal direction="left">
+              <article className={styles.chatPanel}>
+                <div className={styles.chatPanelDetails}>
+                  <span className="badge">AI Chatbot</span>
+                  <h2>Better <span className={styles.websitesTitle}>customer support</span> without manual replies.</h2>
+                  <p>Provide instant answers, capture leads, qualify users, and guide customers using your own business data.</p>
                 </div>
-                <div className={styles.chatMessage}>Hello! How can I help you today?</div>
-                <div className={`${styles.chatMessage} ${styles.chatUser}`}>I need help with my order.</div>
-                <div className={styles.chatMessage}>Sure, share your order ID and I will check it.</div>
-              </div>
-            </article>
+                <div className={styles.chatBox}>
+                  <div className={styles.chatTop}>
+                    <div className={styles.avatar}>AI</div>
+                    <div>
+                      <div className={styles.chatName}>AI Assistant</div>
+                      <span className={styles.chatStatus}>Online</span>
+                    </div>
+                  </div>
+                  <div className={styles.chatMessage}>Hello! How can I help you today?</div>
+                  <div className={`${styles.chatMessage} ${styles.chatUser}`}>I need help with my order.</div>
+                  <div className={styles.chatMessage}>Sure, share your order ID and I will check it.</div>
+                </div>
+              </article>
+            </ScrollReveal>
 
-            <article className={styles.processPanel}>
-              <span className="badge">Business Automation</span>
-              <h2>Automate your <span className={styles.websitesTitle}>business processes</span>.</h2>
-              <p>Save time, reduce errors, and increase productivity with AI workflows connected to your tools.</p>
-              <div className={styles.flow}>
-                <span>New lead</span>
-                <span>AI qualifies</span>
-                <span>CRM update</span>
-                <span>Email sent</span>
-              </div>
-            </article>
+            <ScrollReveal direction="right" delay={100}>
+              <article className={styles.processPanel}>
+                <span className="badge">Business Automation</span>
+                <h2>Automate your <span className={styles.websitesTitle}>business processes</span>.</h2>
+                <p>Save time, reduce errors, and increase productivity with AI workflows connected to your tools.</p>
+                <div className={styles.flow}>
+                  <span>New lead</span>
+                  <span>AI qualifies</span>
+                  <span>CRM update</span>
+                  <span>Email sent</span>
+                </div>
+              </article>
+            </ScrollReveal>
 
-            <article className={styles.voicePanel}>
-              <span className="badge">Voice AI</span>
-              <h2>AI voice agents that <span className={styles.websitesTitle}>sound human</span>.</h2>
-              <p>Real-time conversations, natural voice, smart responses, booking flows, and lead qualification.</p>
-              <div className={styles.waveContainer}>
-                <div className={styles.waveBar}></div>
-                <div className={styles.waveBar}></div>
-                <div className={styles.waveBar}></div>
-                <div className={styles.waveBar}></div>
-                <div className={styles.waveBar}></div>
-                <div className={styles.waveBar}></div>
-                <div className={styles.waveBar}></div>
-                <div className={styles.waveBar}></div>
-              </div>
-            </article>
+            <ScrollReveal direction="left" delay={200}>
+              <article className={styles.voicePanel}>
+                <span className="badge">Voice AI</span>
+                <h2>AI voice agents that <span className={styles.websitesTitle}>sound human</span>.</h2>
+                <p>Real-time conversations, natural voice, smart responses, booking flows, and lead qualification.</p>
+                <div className={styles.waveContainer}>
+                  <div className={styles.waveBar}></div>
+                  <div className={styles.waveBar}></div>
+                  <div className={styles.waveBar}></div>
+                  <div className={styles.waveBar}></div>
+                  <div className={styles.waveBar}></div>
+                  <div className={styles.waveBar}></div>
+                  <div className={styles.waveBar}></div>
+                  <div className={styles.waveBar}></div>
+                </div>
+              </article>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       <section id="websites" className={styles.section}>
         <div className="container">
-          <div className={styles.sectionHeader}>
-            <span className="badge">Websites & CMS</span>
-            <h2 className={styles.sectionTitle}>
-              We also build websites for <span className={styles.websitesTitle}>schools</span>, <span className={styles.websitesTitle}>ecommerce brands</span>, and <span className={styles.websitesTitle}>businesses</span>.
-            </h2>
-            <p className={styles.sectionSubtitle}>
-              Your website can include <span className={styles.websitesTitle}>beautiful UI</span>, <span className={styles.websitesTitle}>SEO-friendly pages</span>, <span className={styles.websitesTitle}>fast performance</span>, <span className={styles.websitesTitle}>WhatsApp contact</span>, <span className={styles.websitesTitle}>lead forms</span>, and <span className={styles.websitesTitle}>CMS content management</span>.
-            </p>
-          </div>
+          <ScrollReveal direction="right">
+            <div className={styles.sectionHeader}>
+              <span className="badge">Websites & CMS</span>
+              <h2 className={styles.sectionTitle}>
+                We also build websites for <span className={styles.websitesTitle}>schools</span>, <span className={styles.websitesTitle}>ecommerce brands</span>, and <span className={styles.websitesTitle}>businesses</span>.
+              </h2>
+              <p className={styles.sectionSubtitle}>
+                Your website can include <span className={styles.websitesTitle}>beautiful UI</span>, <span className={styles.websitesTitle}>SEO-friendly pages</span>, <span className={styles.websitesTitle}>fast performance</span>, <span className={styles.websitesTitle}>WhatsApp contact</span>, <span className={styles.websitesTitle}>lead forms</span>, and <span className={styles.websitesTitle}>CMS content management</span>.
+              </p>
+            </div>
+          </ScrollReveal>
           <div className={styles.solutionGrid}>
-            {websiteSolutions.map((item) => (
-              <article key={item.title} className={styles.solutionCard}>
-                <div className={styles.solutionCardHeader}>
-                  <div className={styles.solutionCardIcon}>✓</div>
-                  <h3>{item.title}</h3>
-                </div>
-                <p>{item.description}</p>
-              </article>
+            {websiteSolutions.map((item, i) => (
+              <ScrollReveal key={item.title} direction={i % 2 === 0 ? "left" : "right"} delay={i * 100}>
+                <article className={styles.solutionCard}>
+                  <div className={styles.solutionCardHeader}>
+                    <div className={styles.solutionCardIcon}>✓</div>
+                    <h3>{item.title}</h3>
+                  </div>
+                  <p>{item.description}</p>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -259,29 +272,35 @@ export default function Home() {
 
       <section id="why-us" className={styles.benefitsBar}>
         <div className="container">
-          <div className={styles.benefitsGrid}>
-            <div><strong>Custom Solutions</strong><span>Built for your business</span></div>
-            <div><strong>Fast Development</strong><span>On-time project delivery</span></div>
-            <div><strong>Scalable & Secure</strong><span>Professional architecture</span></div>
-            <div><strong>Modern Technology</strong><span>Latest AI and web tools</span></div>
-            <div><strong>Ongoing Support</strong><span>Help after launch</span></div>
-          </div>
+          <ScrollReveal direction="left">
+            <div className={styles.benefitsGrid}>
+              <div><strong>Custom Solutions</strong><span>Built for your business</span></div>
+              <div><strong>Fast Development</strong><span>On-time project delivery</span></div>
+              <div><strong>Scalable & Secure</strong><span>Professional architecture</span></div>
+              <div><strong>Modern Technology</strong><span>Latest AI and web tools</span></div>
+              <div><strong>Ongoing Support</strong><span>Help after launch</span></div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       <section id="process" className={styles.section}>
         <div className="container">
-          <div className={styles.sectionHeader}>
-            <span className="badge">Our Process</span>
-            <h2 className={styles.sectionTitle}>From <span className={styles.websitesTitle}>idea to launch</span> with a clear workflow.</h2>
-          </div>
+          <ScrollReveal direction="left">
+            <div className={styles.sectionHeader}>
+              <span className="badge">Our Process</span>
+              <h2 className={styles.sectionTitle}>From <span className={styles.websitesTitle}>idea to launch</span> with a clear workflow.</h2>
+            </div>
+          </ScrollReveal>
           <div className={styles.processGrid}>
-            {process.map(([step, title, description]) => (
-              <article key={step} className={styles.processCard}>
-                <div className={styles.processStep}>{step}</div>
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </article>
+            {process.map(([step, title, description], i) => (
+              <ScrollReveal key={step} direction={i % 2 === 0 ? "right" : "left"} delay={i * 100}>
+                <article className={styles.processCard}>
+                  <div className={styles.processStep}>{step}</div>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -289,20 +308,24 @@ export default function Home() {
 
       <section id="technologies" className={styles.techSection}>
         <div className="container">
-          <div className={styles.sectionHeader}>
-            <span className="badge">Technologies</span>
-            <h2 className={styles.sectionTitle}>Modern tools for <span className={styles.websitesTitle}>AI, CMS</span>, and <span className={styles.websitesTitle}>full-stack development</span>.</h2>
-          </div>
+          <ScrollReveal direction="right">
+            <div className={styles.sectionHeader}>
+              <span className="badge">Technologies</span>
+              <h2 className={styles.sectionTitle}>Modern tools for <span className={styles.websitesTitle}>AI, CMS</span>, and <span className={styles.websitesTitle}>full-stack development</span>.</h2>
+            </div>
+          </ScrollReveal>
           <div className={styles.techGrid}>
-            {techGroups.map(([title, items]) => (
-              <article key={title as string} className={styles.techCard}>
-                <h3>{title as string}</h3>
-                <div className={styles.tags}>
-                  {(items as string[]).map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
-                </div>
-              </article>
+            {techGroups.map(([title, items], i) => (
+              <ScrollReveal key={title as string} direction={i % 2 === 0 ? "left" : "right"} delay={i * 80}>
+                <article className={styles.techCard}>
+                  <h3>{title as string}</h3>
+                  <div className={styles.tags}>
+                    {(items as string[]).map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
+                  </div>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -310,29 +333,33 @@ export default function Home() {
 
       <section id="faq" className={styles.section}>
         <div className="container">
-          <div className={styles.sectionHeader}>
-            <span className="badge">FAQ</span>
-            <h2 className={styles.sectionTitle}>Questions before your <span className={styles.websitesTitle}>free consultation</span>.</h2>
-          </div>
+          <ScrollReveal direction="left">
+            <div className={styles.sectionHeader}>
+              <span className="badge">FAQ</span>
+              <h2 className={styles.sectionTitle}>Questions before your <span className={styles.websitesTitle}>free consultation</span>.</h2>
+            </div>
+          </ScrollReveal>
           <div className={styles.faqList}>
             {faqs.map(([question, answer], index) => {
               const isOpen = openFaq === index;
               return (
-                <article key={question} className={`${styles.faqItem} ${isOpen ? styles.faqActive : ""}`}>
-                  <button 
-                    className={styles.faqQuestion} 
-                    onClick={() => toggleFaq(index)}
-                    aria-expanded={isOpen}
-                  >
-                    <span>{question}</span>
-                    <span className={styles.faqIcon}>{isOpen ? "−" : "+"}</span>
-                  </button>
-                  <div className={`${styles.faqAnswer} ${isOpen ? styles.faqAnswerOpen : ""}`}>
-                    <div className={styles.faqAnswerInner}>
-                      <p>{answer}</p>
+                <ScrollReveal key={question} direction={index % 2 === 0 ? "right" : "left"} delay={index * 80}>
+                  <article className={`${styles.faqItem} ${isOpen ? styles.faqActive : ""}`}>
+                    <button 
+                      className={styles.faqQuestion} 
+                      onClick={() => toggleFaq(index)}
+                      aria-expanded={isOpen}
+                    >
+                      <span>{question}</span>
+                      <span className={styles.faqIcon}>{isOpen ? "−" : "+"}</span>
+                    </button>
+                    <div className={`${styles.faqAnswer} ${isOpen ? styles.faqAnswerOpen : ""}`}>
+                      <div className={styles.faqAnswerInner}>
+                        <p>{answer}</p>
+                      </div>
                     </div>
-                  </div>
-                </article>
+                  </article>
+                </ScrollReveal>
               );
             })}
           </div>
@@ -342,24 +369,28 @@ export default function Home() {
       <section id="contact" className={styles.contactSection}>
         <div className="container">
           <div className={styles.contactContainer}>
-            <div className={styles.contactDetails}>
-              <span className="badge">Free Consultation</span>
-              <h2 className={styles.contactTitle}>Ready to build your <span className={styles.websitesTitle}>AI automation</span> or <span className={styles.websitesTitle}>website</span>?</h2>
-              <p className={styles.contactSubtitle}>
-                Contact us on WhatsApp or phone at <strong>{phoneNumber}</strong>. The same number works for calls and WhatsApp.
-              </p>
-              <div className={styles.contactButtons}>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                  <WhatsAppIcon />
-                  WhatsApp {phoneNumber}
-                </a>
-                <a href={`tel:${phoneNumber}`} className="btn btn-secondary">
-                  <PhoneIcon />
-                  Call Now
-                </a>
+            <ScrollReveal direction="left">
+              <div className={styles.contactDetails}>
+                <span className="badge">Free Consultation</span>
+                <h2 className={styles.contactTitle}>Ready to build your <span className={styles.websitesTitle}>AI automation</span> or <span className={styles.websitesTitle}>website</span>?</h2>
+                <p className={styles.contactSubtitle}>
+                  Contact us on WhatsApp or phone at <strong>{phoneNumber}</strong>. The same number works for calls and WhatsApp.
+                </p>
+                <div className={styles.contactButtons}>
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                    <WhatsAppIcon />
+                    WhatsApp {phoneNumber}
+                  </a>
+                  <a href={`tel:${phoneNumber}`} className="btn btn-secondary">
+                    <PhoneIcon />
+                    Call Now
+                  </a>
+                </div>
               </div>
-            </div>
-            <ContactForm />
+            </ScrollReveal>
+            <ScrollReveal direction="right" delay={150}>
+              <ContactForm />
+            </ScrollReveal>
           </div>
         </div>
       </section>

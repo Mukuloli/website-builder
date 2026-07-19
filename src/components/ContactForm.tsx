@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import styles from "./ContactForm.module.css";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -24,7 +26,15 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus("loading");
 
-    setTimeout(() => {
+    try {
+      await addDoc(collection(db, "contacts"), {
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        message: formData.message,
+        createdAt: serverTimestamp(),
+      });
+
       setStatus("success");
       setFormData({
         name: "",
@@ -32,7 +42,10 @@ export default function ContactForm() {
         company: "",
         message: "",
       });
-    }, 1500);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setStatus("error");
+    }
   };
 
   if (status === "success") {
@@ -45,6 +58,21 @@ export default function ContactForm() {
         </p>
         <button className="btn btn-primary" onClick={() => setStatus("idle")}>
           Send Another Message
+        </button>
+      </div>
+    );
+  }
+
+  if (status === "error") {
+    return (
+      <div className={styles.successCard}>
+        <div className={styles.successIcon} style={{ background: "rgba(239, 68, 68, 0.15)", color: "#ef4444" }}>✕</div>
+        <h3 className={styles.successTitle}>Something went wrong.</h3>
+        <p className={styles.successText}>
+          We could not send your message. Please try again or contact us directly on WhatsApp.
+        </p>
+        <button className="btn btn-primary" onClick={() => setStatus("idle")}>
+          Try Again
         </button>
       </div>
     );
