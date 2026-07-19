@@ -17,9 +17,7 @@ const COUNTRY_CODES = [
   { code: "+33", label: "🇫🇷 +33 (France)" },
   { code: "+966", label: "🇸🇦 +966 (Saudi Arabia)" },
   { code: "+974", label: "🇶🇦 +974 (Qatar)" },
-  { code: "+92", label: "🇵🇰 +92 (Pakistan)" },
-  { code: "+880", label: "🇧🇩 +880 (Bangladesh)" },
-  { code: "+977", label: "🇳🇵 +977 (Nepal)" },
+  { code: "+977", label: "🇳🇵 +977 (Nepal)" }
 ];
 
 export default function ContactForm() {
