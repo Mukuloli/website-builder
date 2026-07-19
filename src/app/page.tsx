@@ -150,8 +150,8 @@ export default function Home() {
 
             <div className={styles.heroVisual}>
               <Image
-                src="/images/front.png"
-                alt="AI automation voice agent and chatbot design"
+                src="/images/ai-automation-agency-hero-banner.png"
+                alt="AI automation voice agent chatbot and web development agency"
                 width={900}
                 height={620}
                 className={styles.heroImage}

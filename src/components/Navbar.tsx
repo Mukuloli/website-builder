@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import NextLink from "next/link";
+import Image from "next/image";
 import styles from "./Navbar.module.css";
 
 const phoneNumber = "9411398572";
@@ -52,6 +53,13 @@ export default function Navbar() {
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""} ${isOpen ? styles.menuOpen : ""}`}>
       <div className={styles.container}>
         <NextLink href="/" className={styles.logo} onClick={() => setIsOpen(false)}>
+          <Image
+            src="/images/ai-automate-logo.png"
+            alt="AI Automate Logo"
+            width={34}
+            height={34}
+            style={{ borderRadius: "8px", objectFit: "cover", marginRight: "8px" }}
+          />
           AI<span className="text-gradient">Automate</span>
         </NextLink>
 

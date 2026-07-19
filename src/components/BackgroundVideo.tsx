@@ -40,7 +40,7 @@ export default function BackgroundVideo() {
       className="global-video-bg"
       style={{ pointerEvents: "none" }}
     >
-      <source src="/images/The_Visual_Description_Prompt.mp4" type="video/mp4" />
+      <source src="/images/ai-automation-background-video.mp4" type="video/mp4" />
     </video>
   );
 }

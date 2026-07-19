@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
     date: "July 15, 2026",
     category: "Voice AI",
     readTime: "5 min read",
-    image: "/images/blog_dev.png",
+    image: "/images/ai-voice-agents-business-automation.png",
     author: "AI Automate"
   },
   {
@@ -44,7 +44,7 @@ export const blogPosts: BlogPost[] = [
     date: "July 10, 2026",
     category: "AI Chatbots",
     readTime: "6 min read",
-    image: "/images/blog_mkt.png",
+    image: "/images/rag-chatbots-business-data-solutions.png",
     author: "AI Automate"
   }
 ];
