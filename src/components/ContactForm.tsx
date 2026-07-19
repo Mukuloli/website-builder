@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import styles from "./ContactForm.module.css";
 import { db } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import emailjs from "@emailjs/browser";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -32,14 +33,37 @@ export default function ContactForm() {
         setTimeout(() => reject(new Error("Request timed out")), 10000)
       );
 
+      // Save to Firestore
+      const firestoreTask = addDoc(collection(db, "contacts"), {
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        message: formData.message,
+        createdAt: serverTimestamp(),
+      });
+
+      // Send EmailJS notification if environment variables exist
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+      const emailTask =
+        serviceId && templateId && publicKey
+          ? emailjs.send(
+              serviceId,
+              templateId,
+              {
+                from_name: formData.name,
+                from_email: formData.email,
+                company: formData.company || "N/A",
+                message: formData.message,
+              },
+              publicKey
+            )
+          : Promise.resolve();
+
       await Promise.race([
-        addDoc(collection(db, "contacts"), {
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          message: formData.message,
-          createdAt: serverTimestamp(),
-        }),
+        Promise.all([firestoreTask, emailTask]),
         timeoutPromise,
       ]);
 
